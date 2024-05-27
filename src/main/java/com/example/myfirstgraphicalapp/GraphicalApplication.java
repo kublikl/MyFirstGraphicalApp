@@ -18,14 +18,16 @@ public class GraphicalApplication extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        // Stage -> Scene -> StackPane Text
+        // Stage -> Scene -> StackPane -> Text
         primaryStage.show();
+
+        // Controls
         Text text = new Text("Text from first graphical application");
         Button button = new Button("My fisrt button");
         Text text2 = new Text("Second text");
 
         // root
-       // StackPane root = new StackPane();
+        // StackPane root = new StackPane();
         // HBox root = new HBox();
         VBox root = new VBox();
         root.getChildren().add(text);
