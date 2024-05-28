@@ -1,9 +1,13 @@
 package com.example.myfirstgraphicalapp;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
@@ -37,13 +41,44 @@ public class Controls extends Application {
         // ImageView
         Image image = new Image("hand.png");
         ImageView imageView = new ImageView(image);
-       // label.setGraphic(imageView);
-       // Label labelWithImage = new Label("label with image, imageView");
+        // label.setGraphic(imageView);
+        // Label labelWithImage = new Label("label with image, imageView");
         imageView.setX(55);
         imageView.setY(22);
         imageView.setFitHeight(100);
         imageView.setFitWidth(200);
         imageView.setPreserveRatio(true);
+
+        //Button
+        Button button = new Button("My first modal button");
+        button.setText("My modal button with changed text");
+        button.setLayoutX(20);
+        button.setLayoutY(120);
+        button.setTextFill(Color.GREEN);
+        //button.setGraphic(imageView);
+        button.setDisable(false);
+        button.setMaxWidth(500);
+        button.setWrapText(true);
+        button.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                System.out.println("I clicked");
+                String text = button.getText() + " I clicked ";
+                button.setText(text);
+                button.setDisable(true);
+            }
+        });
+
+        // TextField
+        TextField textField = new TextField();
+        // textField.setText("tekst");
+        textField.setPromptText("write email");
+        textField.setPrefColumnCount(20);
+        textField.setLayoutX(20);
+        textField.setLayoutY(120);
+
+
+
 
 
 
@@ -52,6 +87,8 @@ public class Controls extends Application {
         Group group = new Group();
         group.getChildren().add(label);
         group.getChildren().add(imageView);
+        group.getChildren().add(textField);
+        group.getChildren().add(button);
 
         Scene scene = new Scene(group, 800,600, Color.WHITE);
 
