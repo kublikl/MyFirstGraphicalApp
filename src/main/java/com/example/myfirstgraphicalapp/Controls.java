@@ -59,15 +59,7 @@ public class Controls extends Application {
         button.setDisable(false);
         button.setMaxWidth(500);
         button.setWrapText(true);
-        button.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                System.out.println("I clicked");
-                String text = button.getText() + " I clicked ";
-                button.setText(text);
-                button.setDisable(true);
-            }
-        });
+
 
         // TextField
         TextField textField = new TextField();
@@ -75,8 +67,16 @@ public class Controls extends Application {
         textField.setPromptText("write email");
         textField.setPrefColumnCount(20);
         textField.setLayoutX(20);
-        textField.setLayoutY(120);
+        textField.setLayoutY(160);
+        button.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                System.out.println("Catch: " + textField.getText());
 
+
+                textField.getText();
+            }
+        });
 
 
 
